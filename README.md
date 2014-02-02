@@ -1,8 +1,28 @@
-= dimension
+dimension
+=========
 
-Description goes here.
+A gem to help you measure object's dimension -in Ruby's way.
 
-== Contributing to dimension
+Installation
+------------
+
+```
+gem install dimension
+```
+
+or, put this in your `Gemfile`
+
+```ruby
+gem 'dimension', :github => 'ismailfaruqi/dimension'
+```
+
+Usage
+-----
+
+
+
+Contributing to dimension
+-------------------------
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
