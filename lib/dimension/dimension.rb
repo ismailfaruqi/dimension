@@ -5,7 +5,6 @@ module Dimension
 		end
 
 		def width
-			binding.pry
 			send @obj, @obj.class.width_method
 		end
 

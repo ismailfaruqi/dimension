@@ -18,6 +18,7 @@ module Dimension
 		module ClassMethods
 			attr_accessor :width_method
 			attr_accessor :height_method
+			attr_accessor :radius_method
 
 			def act_as_rectangle(args)
 				validate_rectangle_args(args)
@@ -27,9 +28,7 @@ module Dimension
 
 			def act_as_circle(args)
 				validate_circle_args(args)
-				# class << self
-				# 	alias :dimension_d2_circle_radius args[:radius]
-				# end
+				radius_method = args[:radius]
 			end
 
 			private

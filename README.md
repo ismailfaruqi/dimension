@@ -34,8 +34,6 @@ class A
 	end
 end
 
-A.area # => 24 (4 * 6)
-
 A.foo # => 4
 A.dimension.width # => 4
 
