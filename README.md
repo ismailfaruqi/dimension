@@ -19,6 +19,32 @@ gem 'dimension', :github => 'ismailfaruqi/dimension'
 Usage
 -----
 
+```ruby
+class A
+	include Dimension::D2
+
+	act_as_rectangle :width => :foo, :height => :bar
+	
+	def foo
+		4
+	end
+
+	def bar
+		6
+	end
+end
+
+A.area # => 24 (4 * 6)
+
+A.foo # => 4
+A.dimension.width # => 4
+
+A.bar # => 6
+A.dimension.height # => 6
+
+A.dimension.area # => 24
+
+```
 
 
 Contributing to dimension

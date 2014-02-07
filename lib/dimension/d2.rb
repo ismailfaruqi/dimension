@@ -11,6 +11,12 @@ module Dimension
 		def circumference
 		end
 
+		def weight
+		end
+
+		def height
+		end
+
 		module ClassMethods
 			def act_as_rectangle(args)
 				validate_rectangle_args(args)

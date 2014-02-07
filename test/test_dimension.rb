@@ -6,6 +6,6 @@ class TestDimension < Test::Unit::TestCase
   		include Dimension::D2
   	end
   	a = a_class.new
-  	a.class.methods.include?[:validate_rectangle_args]
+  	a.class.respond_to? :
   end
 end
