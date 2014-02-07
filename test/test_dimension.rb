@@ -21,6 +21,7 @@ class TestDimension < Test::Unit::TestCase
   	assert_equal 4, a.dimension.width
   	assert_equal 6, a.dimension.height
   	assert_equal 24, a.dimension.area
+  	assert_equal 20, a.dimension.circumference
   end
 
   should "pass success for acts_as_circle" do
@@ -37,5 +38,6 @@ class TestDimension < Test::Unit::TestCase
   	assert_equal Dimension::Dimension, a.dimension.class
   	assert_equal 4, a.dimension.radius
   	assert_equal Math::PI * 4**2, a.dimension.area
+  	assert_equal 2 * Math::PI * 4, a.dimension.circumference
   end
 end

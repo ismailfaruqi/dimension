@@ -20,6 +20,10 @@ module Dimension
 			@obj.class.area_method.call(@obj)
 		end
 
+		def circumference
+			@obj.class.circumference_method.call(@obj)
+		end
+
 		def shape
 		end
 

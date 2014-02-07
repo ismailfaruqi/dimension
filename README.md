@@ -41,6 +41,7 @@ A.bar # => 6
 A.dimension.height # => 6
 
 A.dimension.area # => 24
+A.dimension.circumference # => 2 * 4 + 2 * 2
 A.dimension.shape # :rectangle
 A.dimension.count # => 2
 
