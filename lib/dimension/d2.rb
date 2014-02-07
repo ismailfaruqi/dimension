@@ -20,13 +20,13 @@ module Dimension
 			attr_accessor :height_method
 			attr_accessor :radius_method
 
-			def act_as_rectangle(args)
+			def acts_as_rectangle(args)
 				validate_rectangle_args(args)
 				width_method = args[:width]
 				height_method = args[:height]
 			end
 
-			def act_as_circle(args)
+			def acts_as_circle(args)
 				validate_circle_args(args)
 				radius_method = args[:radius]
 			end

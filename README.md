@@ -23,7 +23,7 @@ Usage
 class A
 	include Dimension::D2
 
-	act_as_rectangle :width => :foo, :height => :bar
+	acts_as_rectangle :width => :foo, :height => :bar
 	
 	def foo
 		4
@@ -41,8 +41,34 @@ A.bar # => 6
 A.dimension.height # => 6
 
 A.dimension.area # => 24
+A.dimension.shape # :rectangle
+A.dimension.arity # => 2
 
 ```
+
+Available methods
+-----------------
+
+```ruby 
+include Dimension::D2
+acts_as_rectangle, :width => :foo, :height => :bar
+```
+
+```ruby 
+include Dimension::D2
+acts_as_circle, :radius => :foo
+```
+
+```ruby 
+include Dimension::D3
+acts_as_box, :width => :foo, :height => :bar, :length => :baz
+```
+
+```ruby 
+include Dimension::D3
+acts_as_sphere, :radius => :foo
+```
+
 
 Testing
 -------

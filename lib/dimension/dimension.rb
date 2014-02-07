@@ -10,5 +10,11 @@ module Dimension
 
 		def height
 		end
+
+		def shape
+		end
+
+		def arity
+		end
 	end
 end
