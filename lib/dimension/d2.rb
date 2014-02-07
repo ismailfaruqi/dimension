@@ -4,13 +4,6 @@ module Dimension
 			base.extend(ClassMethods)
 		end
 
-		def area
-			dimension_d2_rectangle_width * dimension_d2_rectangle_height
-		end
-
-		def circumference
-		end
-
 		def dimension
 			@dimension || Dimension.new(self)
 		end
@@ -29,16 +22,16 @@ module Dimension
 				validate_rectangle_args(args)
 				self.width_method = args[:width]
 				self.height_method = args[:height]
-				self.area_method = Proc.new { |x, y|
-					x * y
+				self.area_method = Proc.new { |obj|
+					obj.dimension.width * obj.dimension.height
 				}
 			end
 
 			def acts_as_circle(args)
 				validate_circle_args(args)
 				self.radius_method = args[:radius]
-				self.area_method = Proc.new { |x|
-					Math.PI * x ^ 2
+				self.area_method = Proc.new { |obj|
+					Math::PI * obj.dimension.radius**2
 				}
 			end
 
@@ -49,7 +42,7 @@ module Dimension
 			end
 
 			def validate_circle_args(args)
-				raise InvalidArgumentException.new('validate_circle_args need :radius argument to be set') if args[:radius]
+				raise InvalidArgumentException.new('validate_circle_args need :radius argument to be set') if args[:radius].nil?
 			end
 		end
 	end

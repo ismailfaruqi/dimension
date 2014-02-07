@@ -24,5 +24,18 @@ class TestDimension < Test::Unit::TestCase
   end
 
   should "pass success for acts_as_circle" do
+  	a_class = Class.new do
+  		include Dimension::D2
+  		acts_as_circle :radius => :foo
+
+  		def foo
+  			4
+  		end
+  	end
+  	a = a_class.new
+  	assert_not_equal nil, a.dimension
+  	assert_equal Dimension::Dimension, a.dimension.class
+  	assert_equal 4, a.dimension.radius
+  	assert_equal Math::PI * 4**2, a.dimension.area
   end
 end

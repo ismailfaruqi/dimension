@@ -12,8 +12,12 @@ module Dimension
 			@obj.send @obj.class.height_method
 		end
 
+		def radius
+			@obj.send @obj.class.radius_method
+		end
+
 		def area
-			@obj.class.area_method.call(self.width, self.height)
+			@obj.class.area_method.call(@obj)
 		end
 
 		def shape
