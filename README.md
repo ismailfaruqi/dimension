@@ -46,6 +46,14 @@ A.dimension.area # => 24
 
 ```
 
+Testing
+-------
+
+Run the following command:
+```
+rake test
+```
+
 
 Contributing to dimension
 -------------------------
