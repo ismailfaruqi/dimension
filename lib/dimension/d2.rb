@@ -15,20 +15,31 @@ module Dimension
 			@dimension || Dimension.new(self)
 		end
 
+		def count
+			2
+		end
+
 		module ClassMethods
 			attr_accessor :width_method
 			attr_accessor :height_method
+			attr_accessor :area_method
 			attr_accessor :radius_method
 
 			def acts_as_rectangle(args)
 				validate_rectangle_args(args)
-				width_method = args[:width]
-				height_method = args[:height]
+				self.width_method = args[:width]
+				self.height_method = args[:height]
+				self.area_method = Proc.new { |x, y|
+					x * y
+				}
 			end
 
 			def acts_as_circle(args)
 				validate_circle_args(args)
-				radius_method = args[:radius]
+				self.radius_method = args[:radius]
+				self.area_method = Proc.new { |x|
+					Math.PI * x ^ 2
+				}
 			end
 
 			private

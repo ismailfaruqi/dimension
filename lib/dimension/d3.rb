@@ -4,6 +4,14 @@ module Dimension
 			base.extend(ClassMethods)
 		end
 
+		def dimension
+			@dimension || Dimension.new(self)
+		end
+
+		def count
+			3
+		end
+
 		module ClassMethods
 		end
 	end

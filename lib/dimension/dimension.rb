@@ -5,10 +5,15 @@ module Dimension
 		end
 
 		def width
-			send @obj, @obj.class.width_method
+			@obj.send @obj.class.width_method
 		end
 
 		def height
+			@obj.send @obj.class.height_method
+		end
+
+		def area
+			@obj.class.area_method.call(self.width, self.height)
 		end
 
 		def shape

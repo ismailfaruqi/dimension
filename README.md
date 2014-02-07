@@ -42,7 +42,7 @@ A.dimension.height # => 6
 
 A.dimension.area # => 24
 A.dimension.shape # :rectangle
-A.dimension.arity # => 2
+A.dimension.count # => 2
 
 ```
 
