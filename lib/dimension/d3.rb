@@ -13,14 +13,15 @@ module Dimension
 		end
 
 		module ClassMethods
-			attr_accessor :width_method
-			attr_accessor :length_method
-			attr_accessor :height_method
 			attr_accessor :volume_method
-			attr_accessor :radius_method
-
+			
 			def acts_as_box(args)
 				validate_box_args(args)
+				class << self
+					attr_accessor :width_method
+					attr_accessor :length_method
+					attr_accessor :height_method
+				end
 				self.width_method = args[:width]
 				self.height_method = args[:height]
 				self.length_method = args[:length]
@@ -30,6 +31,9 @@ module Dimension
 			end
 
 			def acts_as_sphere(args)
+				class << self
+					attr_accessor :radius_method
+				end
 				validate_sphere_args(args)
 				self.radius_method = args[:radius]
 				self.volume_method = Proc.new { |obj|

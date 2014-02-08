@@ -13,14 +13,15 @@ module Dimension
 		end
 
 		module ClassMethods
-			attr_accessor :width_method
-			attr_accessor :height_method
 			attr_accessor :area_method
-			attr_accessor :radius_method
 			attr_accessor :circumference_method
 
 			def acts_as_rectangle(args)
 				validate_rectangle_args(args)
+				class << self
+					attr_accessor :width_method
+					attr_accessor :height_method
+				end
 				self.width_method = args[:width]
 				self.height_method = args[:height]
 				self.area_method = Proc.new { |obj|
@@ -33,6 +34,9 @@ module Dimension
 
 			def acts_as_circle(args)
 				validate_circle_args(args)
+				class << self
+					attr_accessor :radius_method
+				end
 				self.radius_method = args[:radius]
 				self.area_method = Proc.new { |obj|
 					Math::PI * obj.dimension.radius**2

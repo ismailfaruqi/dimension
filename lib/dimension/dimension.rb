@@ -28,6 +28,9 @@ module Dimension
 			@obj.class.volume_method.call(@obj)
 		end
 
+		def surface_area
+		end
+
 		def circumference
 			@obj.class.circumference_method.call(@obj)
 		end
