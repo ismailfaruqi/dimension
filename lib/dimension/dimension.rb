@@ -12,12 +12,20 @@ module Dimension
 			@obj.send @obj.class.height_method
 		end
 
+		def length
+			@obj.send @obj.class.length_method
+		end
+
 		def radius
 			@obj.send @obj.class.radius_method
 		end
 
 		def area
 			@obj.class.area_method.call(@obj)
+		end
+
+		def volume
+			@obj.class.volume_method.call(@obj)
 		end
 
 		def circumference

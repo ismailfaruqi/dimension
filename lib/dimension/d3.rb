@@ -1,6 +1,6 @@
 module Dimension
 	module D3
-		def self.included?(base)
+		def self.included(base)
 			base.extend(ClassMethods)
 		end
 
@@ -19,8 +19,8 @@ module Dimension
 			attr_accessor :volume_method
 			attr_accessor :radius_method
 
-			def acts_as_block(args)
-				validate_block_args(args)
+			def acts_as_box(args)
+				validate_box_args(args)
 				self.width_method = args[:width]
 				self.height_method = args[:height]
 				self.length_method = args[:length]
@@ -39,8 +39,8 @@ module Dimension
 
 			private
 
-			def validate_block_args(args)
-				raise InvalidArgumentException.new('validate_block_args need both :width, :length, and :height arguments to be set') if 
+			def validate_box_args(args)
+				raise InvalidArgumentException.new('validate_box_args need both :width, :length, and :height arguments to be set') if 
 				args[:width].nil? || args[:height].nil? || args[:length].nil?
 			end
 
