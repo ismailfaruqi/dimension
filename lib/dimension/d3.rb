@@ -33,7 +33,7 @@ module Dimension
 				validate_sphere_args(args)
 				self.radius_method = args[:radius]
 				self.volume_method = Proc.new { |obj|
-					Math::PI * obj.dimension.radius**3
+					Math::PI * obj.dimension.radius**3 * 4.0 / 3.0
 				}
 			end
 

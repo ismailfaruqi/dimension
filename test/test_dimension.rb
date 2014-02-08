@@ -67,4 +67,20 @@ class TestDimension < Test::Unit::TestCase
   	assert_equal 4 * 6 * 8, a.dimension.volume
   end
 
+  should "pass success for acts_as_sphere" do
+  	a_class = Class.new do
+  		include Dimension::D3
+  		acts_as_sphere :radius => :foo
+
+  		def foo
+  			4
+  		end
+  	end
+  	a = a_class.new
+  	assert_not_equal nil, a.dimension
+  	assert_equal Dimension::Dimension, a.dimension.class
+  	assert_equal 4, a.dimension.radius
+  	assert_equal Math::PI * 4**3 * 4.0 / 3.0, a.dimension.volume
+  end
+
 end
